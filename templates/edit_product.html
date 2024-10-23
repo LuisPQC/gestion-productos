@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Producto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Editar producto</h1>
+      <form method="POST">
+        <!-- Mostrar el ID del producto (no editable) -->
+        <label>ID del producto:</label>
+        <p>{{ product['id'] }}</p>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="{{ product['nombre'] }}" required>
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" name="cantidad" value="{{ product['cantidad'] }}" required>
+
+        <label for="precio">Precio:</label>
+        <input type="number" step="0.01" name="precio" value="{{ product['precio'] }}" required>
+
+        <label for="fecha_vencimiento">Fecha de Vencimiento:</label>
+        <input type="date" name="fecha_vencimiento" value="{{ product['fecha_vencimiento'] }}" required>
+
+        <label for="categoria">Categoría:</label>
+        <input type="text" name="categoria" value="{{ product['categoria'] }}" required>
+
+        <button type="submit">Guardar Cambios</button>
+      </form>
+      <a class="back-link" href="/">Volver a la lista de productos</a>
+    </div>
+  </body>
+</html>

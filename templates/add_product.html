@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Agregar nuevo producto</h1>
+      <form method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required>
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" name="cantidad" required>
+
+        <label for="precio">Precio:</label>
+        <input type="number" step="0.01" name="precio" required>
+
+        <label for="fecha_vencimiento">Fecha de Vencimiento:</label>
+        <input type="date" name="fecha_vencimiento" required>
+
+        <label for="categoria">Categoría:</label>
+        <input type="text" name="categoria" required>
+
+        <button type="submit">Agregar</button>
+      </form>
+      <a class="back-link" href="/">Volver a la lista de productos</a>
+    </div>
+  </body>
+</html>

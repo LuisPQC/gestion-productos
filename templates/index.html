@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="infor">
+            <b>SEGUNDO PARCIAL TEM-742</b> 
+            <br>
+            <b>Nombre:</b> Luis Porfirio Quispe Choque
+            <br>
+            <b>Carnet:</b> 9245532
+    </div>
+    <div class="container">
+        <h1>Gestión de Productos</h1>
+        
+        <!-- Tabla de productos -->
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Cantidad</th>
+              <th>Precio ($)</th>
+              <th>Fecha de Vencimiento</th>
+              <th>Categoría</th>
+              <th colspan="2">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for product in products %}
+              <tr>
+                <td>{{ product['id'] }}</td>
+                <td>{{ product['nombre'] }}</td>
+                <td>{{ product['cantidad'] }}</td>
+                <td>{{ product['precio'] }}</td>
+                <td>{{ product['fecha_vencimiento'] }}</td>
+                <td>{{ product['categoria'] }}</td>
+                <td><a href="/edit/{{ product['id'] }}">Editar</a></td>
+                <td><a href="/delete/{{ product['id'] }}">Eliminar</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        
+        <a class="back-link" href="/add">Agregar un nuevo producto</a>
+      </div>
+  </body>
+</html>
